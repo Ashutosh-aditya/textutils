@@ -55,7 +55,16 @@ return (
     </div>
     </div>
     </div>
-    
+    <div className="dropdown mx-4">
+    <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Colored Background
+    </button>
+    <ul className="dropdown-menu">
+        <li><a className="dropdown-item" onClick={obj.changegreen} href="#">Green</a></li>
+        <li><a className="dropdown-item" onClick={obj.changered} href="#">Red</a></li>
+        <li><a className="dropdown-item" onClick={obj.changeyellow} href="#">Yellow</a></li>
+    </ul>
+</div>
 </nav>
     </div>
 )

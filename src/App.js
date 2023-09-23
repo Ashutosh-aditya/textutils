@@ -35,15 +35,26 @@ function App() {
       showAlert("Dark Mode has been enabled","success");
     }
   }
+
+  const changegreen = ()=>{
+    document.body.style.backgroundColor = '#35C649'
+  }
+  const changeyellow = ()=>{
+    document.body.style.backgroundColor = '#CAB911'
+  }
+  const changered = ()=>{
+    document.body.style.backgroundColor = '#C15031'
+  }
   
   return (
     <>
-    <Navbar title="Text-Utilities" mode={mode} togglemode={togglemode} showAlert={showAlert} />
+    <Navbar title="Text-Utilities" mode={mode} togglemode={togglemode} showAlert={showAlert} changegreen={changegreen} changered={changered} changeyellow={changeyellow}/>
     <Alert alert={alert} />
     <div className="container">
         <TestForm heading="Enter text to analyze" showAlert={showAlert} mode={mode} togglemode={togglemode}/>
     </div>
     {/* <About/> */}
+    
     </>
     // <div className="blank">Nice</div>
   );
