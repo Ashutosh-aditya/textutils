@@ -63,6 +63,7 @@ return (
         <li><a className="dropdown-item" onClick={obj.changegreen} href="#">Green</a></li>
         <li><a className="dropdown-item" onClick={obj.changered} href="#">Red</a></li>
         <li><a className="dropdown-item" onClick={obj.changeyellow} href="#">Yellow</a></li>
+        <li><a className="dropdown-item" onClick={obj.changedefault} href="#">default</a></li>
     </ul>
 </div>
 </nav>
