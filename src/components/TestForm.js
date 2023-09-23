@@ -16,20 +16,57 @@ export default function TestForm(props) {
     const handleUpClick=()=>{
         // console.log("Up-Case fn triggred");
         // console.log({text}.text);
-        let newText=text.toUpperCase();
-        setText(newText);
-        //console.log("Up-Case fn ended");
+        if(text.length<1)
+            props.showAlert("Text is empty","warning");
+        else{
+            let newText=text.toUpperCase();
+            setText(newText);
+            //console.log("Up-Case fn ended");
+            props.showAlert("Text Converted to uppercase","success");
+        }
     };
 
     const handleLowClick=()=>{
+        if(text.length<1)
+            props.showAlert("Text is empty","warning");
+        else {
         let newText=text.toLowerCase();
         setText(newText);
+        props.showAlert("Text Converted to lowercase","success");
+        }
+    };
+
+    const handleCopyClick=()=>{
+        if(text.length<1)
+            props.showAlert("Text is empty","warning");
+        else {
+            navigator.clipboard.writeText(text);
+            props.showAlert("Text Copied to clipboard","success");
+        }
+    };
+
+    const handleClearClick=()=>{
+        if(text.length<1)
+            props.showAlert("Text is already empty","warning");
+        else {
+            setText("");
+            props.showAlert("Text Cleared","success");
+        }
     };
 
     const handleEmailClick=()=>{
-    const emailRegex = /[\w\d.]+@[\w\d.]+\.\w+/g;
-    const emaillist = text.match(emailRegex) || [];
-    setEmail(emaillist);
+        if(text.length<1)
+            props.showAlert("Text is empty","warning");
+        else{
+            const emailRegex = /[\w\d.]+@[\w\d.]+\.\w+/g;
+            const emaillist = text.match(emailRegex) || [];
+            setEmail(emaillist);
+            if(emaillist.length<1)
+                props.showAlert("No E-mails are found","warning");
+            else
+                props.showAlert("Emails are extracted from the Text","success");
+        }
+
     };
 
 return (
@@ -42,6 +79,8 @@ return (
             <button className="btn btn-primary my-2" onClick={handleUpClick}>Convert to UpperCase</button>
             <button className="btn btn-primary my-2 mx-2" onClick={handleLowClick}>Convert to LowerCase</button>
             <button className="btn btn-primary my-2 mx-2" onClick={handleEmailClick}>Filter Emails</button>
+            <button className="btn btn-primary my-2 mx-2" onClick={handleCopyClick}>Copy to Clipboard</button>
+            <button className="btn btn-primary my-2 mx-2" onClick={handleClearClick}>Clear</button>
         </div>
     </div>
     <div className="container my-2" style={{backgroundColor:props.mode==='dark'?'grey':'rgb(176, 224, 230)',color:props.mode==='dark'?'white':'black'}}>
