@@ -55,7 +55,7 @@ return (
     </div>
     </div>
     </div>
-    <div className="dropdown mx-4">
+    {/* <div className="dropdown mx-4">
     <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         Colored Background
     </button>
@@ -65,7 +65,7 @@ return (
         <li><a className="dropdown-item" onClick={obj.changeyellow} href="#">Yellow</a></li>
         <li><a className="dropdown-item" onClick={obj.changedefault} href="#">default</a></li>
     </ul>
-</div>
+</div> */}
 </nav>
     </div>
 )
