@@ -87,7 +87,7 @@ return (
         <h1>Your Text Summary</h1>
         <p>Your text contains<br/>
             {text.length}-Characters<br/>
-            {text.split(" ").length}-Words<br/>
+            {text.length===0?'0':text.split(" ").length}-Words<br/>
             {text.split(" ").length * 0.008}-Minutes Required to read<br/>
         </p>
         <h2>Preview<br/></h2>

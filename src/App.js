@@ -23,7 +23,7 @@ function App() {
             },1500)
   }
 
-  const togglemode=()=>{
+  const togglemode=(colorObj)=>{
     if(mode==="dark"){
       changeMode("light");
       showAlert("Light Mode has been enabled","success");
@@ -38,7 +38,7 @@ function App() {
   
   return (
     <>
-    <Navbar title="Text-Utilities" mode={mode} togglemode={togglemode}/>
+    <Navbar title="Text-Utilities" mode={mode} togglemode={togglemode} showAlert={showAlert} />
     <Alert alert={alert} />
     <div className="container">
         <TestForm heading="Enter text to analyze" showAlert={showAlert} mode={mode} togglemode={togglemode}/>
