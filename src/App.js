@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import Navbar from './components/Navbar';
 import TestForm from './components/TestForm';
-//import About from './components/About';
+import About from './components/About';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
 
@@ -56,7 +56,6 @@ function App() {
     <div className="container">
         <TestForm heading="Enter text to analyze" showAlert={showAlert} mode={mode} togglemode={togglemode}/>
     </div>
-    {/* <About/> */}
     
     </>
     // <div className="blank">Nice</div>
