@@ -4,6 +4,13 @@ import TestForm from './components/TestForm';
 import About from './components/About';
 import React, { useState } from 'react';
 import Alert from './components/Alert';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 import './App.css';
 // let name ="React Developer";
@@ -22,7 +29,6 @@ function App() {
               setAlert(null);
             },1500)
   }
-
   const togglemode=(colorObj)=>{
     if(mode==="dark"){
       changeMode("light");
@@ -38,7 +44,6 @@ function App() {
   const changedefault = ()=>{
     document.body.style.backgroundColor = '#b0e0e6'
   }
-
   const changegreen = ()=>{
     document.body.style.backgroundColor = '#35C649'
   }
@@ -51,12 +56,20 @@ function App() {
   
   return (
     <>
+    <Router>
     <Navbar title="Text-Utilities" mode={mode} togglemode={togglemode} showAlert={showAlert} changegreen={changegreen} changered={changered} changeyellow={changeyellow} changedefault={changedefault}/>
     <Alert alert={alert} />
     <div className="container">
-        <TestForm heading="Enter text to analyze" showAlert={showAlert} mode={mode} togglemode={togglemode}/>
+    <Switch>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/">
+            <TestForm heading="Enter text to analyze" showAlert={showAlert} mode={mode} togglemode={togglemode}/>
+          </Route>
+        </Switch>  
     </div>
-    
+    </Router>
     </>
     // <div className="blank">Nice</div>
   );
